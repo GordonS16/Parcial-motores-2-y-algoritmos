@@ -15,6 +15,7 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private Text livesTxt;
     [SerializeField] private GameObject waveBtn;
     [SerializeField] private GameObject gameOverMenu;
+    private Tower selectedTower;
     private List<Monster> activeMonsters = new List<Monster>();
     public ObjectPool Pool { get; set; }
     public bool WaveActive
@@ -67,7 +68,7 @@ public class GameManager : Singleton<GameManager>
 
     public void Start()
     {
-        Lives = 1;
+        Lives = 10;
         Currency = 100;
     }
 
@@ -93,6 +94,30 @@ public class GameManager : Singleton<GameManager>
             Currency -= ClickedBtn.Price;
             Hover.Instance.Deactivate();
         }
+    }
+
+    public void SelectTower(Tower tower)
+    {
+        if (selectedTower != null)
+        {
+ 
+            selectedTower.Select();
+        }
+
+
+        selectedTower = tower;
+
+        selectedTower.Select();
+    }
+    public void DeselectTower()
+    {
+
+        if (selectedTower != null)
+        {
+            selectedTower.Select();
+        }
+
+        selectedTower = null;
     }
 
     private void HandleEscape()

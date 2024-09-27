@@ -18,13 +18,10 @@ public class ObjectPool : MonoBehaviour
             }
         }
 
-        //If the pool didn't contain the object, that we needed then we need to create a new one
         for (int i = 0; i < objectPrefabs.Length; i++)
         {
-            //If we have a prefab for creating the object
             if (objectPrefabs[i].name == type)
             {
-                //We instantiate the prefab of the correct type
                 GameObject newObject = Instantiate(objectPrefabs[i]);
                 pooledObjects.Add(newObject);
                 newObject.name = type;
