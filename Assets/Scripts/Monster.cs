@@ -5,8 +5,12 @@ using UnityEngine;
 public class Monster : MonoBehaviour
 {
     [SerializeField]private float speed;
+    
+    [SerializeField]private Stat health;
 
     private Stack<Node> path;
+
+    private SpriteRenderer spriteRenderer;
 
     protected Animator myAnimator;
 
@@ -16,19 +20,30 @@ public class Monster : MonoBehaviour
 
     private Vector3 destination;
 
+    public bool Alive
+    {
+        get { return health.CurrentValue > 0; }
+    }
+
+
+    private void Awake()
+    {
+        myAnimator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        health.Initialize();
+    }
+
     private void Update()
     {
         Move();
     }
 
-    private void Awake()
-    {
-        myAnimator = GetComponent<Animator>();
-    }
-
-    public void Spawn()
+    public void Spawn(int health)
     {
         transform.position = LevelManager.Instance.BluePortal.transform.position;
+        this.health.Bar.Reset();
+        this.health.MaxVal = health;
+        this.health.CurrentValue = this.health.MaxVal;
 
         StartCoroutine(Scale(new Vector3(0.1f, 0.1f), new Vector3(1, 1), false));
 
@@ -131,14 +146,36 @@ public class Monster : MonoBehaviour
             other.GetComponent<Portal>().Open();
             GameManager.Instance.Lives--;
         }
+        if (other.tag == "Tile")
+        {
+            spriteRenderer.sortingOrder = other.GetComponent<TileScript>().GridPosition.Y;
+        }
     }
 
-    private void Release()
+    public void Release()
     {
         IsActive = false;
         GridPosition = LevelManager.Instance.BlueSpawn;
-        GameManager.Instance.Pool.ReleaseObject(gameObject);
         GameManager.Instance.RemoveMonster(this);
+        GameManager.Instance.Pool.ReleaseObject(gameObject);
+    }
+
+
+    public void TakeDamage(int damage)
+    {
+        if (IsActive)
+        {
+            health.CurrentValue -= damage;
+
+            if (health.CurrentValue <= 0)
+            {
+                GameManager.Instance.Currency += 2;
+                myAnimator.SetTrigger("Die");
+                IsActive = false;
+                GetComponent<SpriteRenderer>().sortingOrder--;
+            }
+        }
+
     }
 
 }

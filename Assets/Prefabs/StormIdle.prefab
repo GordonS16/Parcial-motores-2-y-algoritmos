@@ -237,4 +237,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileType: LightningProjectile
   projectileSpeed: 3
+  damage: 5
   attackCooldown: 3

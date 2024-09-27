@@ -22,6 +22,8 @@ public class Tower : MonoBehaviour
 
     private float attackTimer;
 
+    [SerializeField]private int damage;
+
     [SerializeField] private float attackCooldown;
 
     public float ProjectileSpeed
@@ -32,6 +34,14 @@ public class Tower : MonoBehaviour
     public Monster Target
     {
         get {return target;}
+    }
+
+    public int Damage
+    {
+        get
+        {
+            return damage;
+        }
     }
 
     void Awake()
@@ -75,7 +85,15 @@ public class Tower : MonoBehaviour
                 //myAnimator.SetTrigger("Attack");
                 canAttack = false;
             }
+        }
+        else if (monsters.Count > 0)
+        {
+            target = monsters.Dequeue();
+        }
 
+        if (target != null && !target.Alive)
+        {
+            target = null;
         }
     }
 

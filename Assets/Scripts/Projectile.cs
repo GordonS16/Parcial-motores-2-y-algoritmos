@@ -8,13 +8,14 @@ public class Projectile : MonoBehaviour {
 
 	private Tower parent;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () 
+    private Animator myAnimator;
+
+    private void Start()
+    {
+        myAnimator = GetComponent<Animator>();
+    }
+
+    void Update () 
 	{
 		MoveToTarget();
 	}
@@ -38,5 +39,21 @@ public class Projectile : MonoBehaviour {
         {
 			GameManager.Instance.Pool.ReleaseObject(gameObject);
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Monster")
+        {
+            if (target.gameObject == other.gameObject)
+            {
+                target.TakeDamage(parent.Damage);
+
+                myAnimator.SetTrigger("Impact");
+            }
+
+
+        }
+
     }
 }

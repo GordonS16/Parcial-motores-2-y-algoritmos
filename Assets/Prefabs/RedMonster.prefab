@@ -102,6 +102,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+  health:
+    bar: {fileID: 2743459159351546883}
+    maxVal: 0
+    currentVal: 0
 --- !u!95 &8442904913590721529
 Animator:
   serializedVersion: 5
@@ -283,6 +287,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1811147318465074055, guid: c820a9a0978631f4e8afce5ba48a5a6a, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6779779270405035791, guid: c820a9a0978631f4e8afce5ba48a5a6a, type: 3}
       propertyPath: m_Name
       value: HealthbarCanvas
@@ -297,3 +305,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1263418206348484874, guid: c820a9a0978631f4e8afce5ba48a5a6a, type: 3}
   m_PrefabInstance: {fileID: 1021791607036432807}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2743459159351546883 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2899363356099020196, guid: c820a9a0978631f4e8afce5ba48a5a6a, type: 3}
+  m_PrefabInstance: {fileID: 1021791607036432807}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99f819d6b9bf8994492c71bc337c1900, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
