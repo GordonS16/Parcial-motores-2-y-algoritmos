@@ -106,6 +106,7 @@ MonoBehaviour:
     bar: {fileID: 7884540226915089842}
     maxVal: 0
     currentVal: 0
+  elementType: 3
 --- !u!95 &-5637791607642533433
 Animator:
   serializedVersion: 5

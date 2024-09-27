@@ -176,7 +176,7 @@ PrefabInstance:
       addedObject: {fileID: 4293975443831614484}
     - targetCorrespondingSourceObject: {fileID: 3215259729609608824, guid: 9b9af89852be4374b8066b69f0ab424e, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4865483689764925105}
+      addedObject: {fileID: 8635099690942200870}
   m_SourcePrefab: {fileID: 100100000, guid: 9b9af89852be4374b8066b69f0ab424e, type: 3}
 --- !u!4 &2773347202880221803 stripped
 Transform:
@@ -223,7 +223,7 @@ CircleCollider2D:
   m_Offset: {x: 0.000000059604645, y: 0}
   serializedVersion: 2
   m_Radius: 0.49999997
---- !u!114 &4865483689764925105
+--- !u!114 &8635099690942200870
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -232,10 +232,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6698716850523966038}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1f5bab710af5bf40a41d59db77a3703, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c8530e7ae6661149afeef7cac2c5c08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   projectileType: LightningProjectile
-  projectileSpeed: 3
+  projectileSpeed: 2
   damage: 5
   attackCooldown: 3
+  debuffDuration: 1
+  proc: 100

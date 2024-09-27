@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tower : MonoBehaviour
+
+public enum Element { STORM, FIRE, FROST, POISON, NONE }
+public abstract class Tower : MonoBehaviour
 {
 
     [SerializeField] private string projectileType;
@@ -12,6 +14,8 @@ public class Tower : MonoBehaviour
 
     private Monster target;
 
+
+    public Element ElementType { get; protected set; }
 
     //private Animator myAnimator;
 
@@ -26,6 +30,14 @@ public class Tower : MonoBehaviour
 
     [SerializeField] private float attackCooldown;
 
+    [SerializeField] private float debuffDuration;
+    [SerializeField] private float proc;
+
+    public float Proc
+    {
+        get { return projectileSpeed; }
+        set { this.proc = value; }
+    }
     public float ProjectileSpeed
     {
         get { return projectileSpeed;}
@@ -43,6 +55,21 @@ public class Tower : MonoBehaviour
             return damage;
         }
     }
+
+    public float DebuffDuration
+    {
+        get
+        {
+            return debuffDuration;
+        }
+        set
+        {
+            this.debuffDuration = value;
+        }
+    }
+
+
+    public int Price { get; set; }
 
     void Awake()
     {
@@ -121,4 +148,5 @@ public class Tower : MonoBehaviour
             target = null;
         }
     }
+    public abstract Debuff GetDebuff();
 }

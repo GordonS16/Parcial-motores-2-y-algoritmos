@@ -176,7 +176,7 @@ PrefabInstance:
       addedObject: {fileID: 1131986880644247874}
     - targetCorrespondingSourceObject: {fileID: 3215259729609608824, guid: 9b9af89852be4374b8066b69f0ab424e, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7011576282201933574}
+      addedObject: {fileID: 339959348657543927}
   m_SourcePrefab: {fileID: 100100000, guid: 9b9af89852be4374b8066b69f0ab424e, type: 3}
 --- !u!4 &1758672980297785570 stripped
 Transform:
@@ -223,7 +223,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.49999997
---- !u!114 &7011576282201933574
+--- !u!114 &339959348657543927
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -232,10 +232,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7125389692415121631}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1f5bab710af5bf40a41d59db77a3703, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e3b760c9cd17b74dbb1aab6773a530d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   projectileType: IceProjectile
-  projectileSpeed: 3
+  projectileSpeed: 2
   damage: 5
   attackCooldown: 3
+  debuffDuration: 5
+  proc: 100
+  slowingFactor: 50

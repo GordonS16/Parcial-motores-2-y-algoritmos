@@ -176,7 +176,7 @@ PrefabInstance:
       addedObject: {fileID: 1622489597108985925}
     - targetCorrespondingSourceObject: {fileID: 3215259729609608824, guid: 9b9af89852be4374b8066b69f0ab424e, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7138368379314557496}
+      addedObject: {fileID: 7983006422909768314}
   m_SourcePrefab: {fileID: 100100000, guid: 9b9af89852be4374b8066b69f0ab424e, type: 3}
 --- !u!1 &3044238919112181316 stripped
 GameObject:
@@ -218,7 +218,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.49999997
---- !u!114 &7138368379314557496
+--- !u!114 &7983006422909768314
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -227,13 +227,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 3044238919112181316}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1f5bab710af5bf40a41d59db77a3703, type: 3}
+  m_Script: {fileID: 11500000, guid: be411f9f5713b1a469100dcc1d03548c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   projectileType: PoisonProjectile
-  projectileSpeed: 3
-  damage: 5
-  attackCooldown: 3
+  projectileSpeed: 2
+  damage: 10
+  attackCooldown: 5
+  debuffDuration: 5
+  proc: 100
+  tickTime: 5
+  splashPrefab: {fileID: 4234903870513889113, guid: f4277957cafc8b94aa17870ffc969a8a, type: 3}
+  splashDamage: 5
 --- !u!4 &5815616922728922745 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6202743519219021381, guid: 9b9af89852be4374b8066b69f0ab424e, type: 3}

@@ -10,6 +10,9 @@ public class Projectile : MonoBehaviour {
 
     private Animator myAnimator;
 
+    private Element elementType;
+
+
     private void Start()
     {
         myAnimator = GetComponent<Animator>();
@@ -24,6 +27,7 @@ public class Projectile : MonoBehaviour {
     {
 		this.target = parent.Target;
 		this.parent = parent;
+        this.elementType = parent.ElementType;
     }
 
 	public void MoveToTarget()
@@ -40,6 +44,19 @@ public class Projectile : MonoBehaviour {
 			GameManager.Instance.Pool.ReleaseObject(gameObject);
         }
     }
+    private void ApplyDebuff()
+    {
+
+        if (target.ElementType != elementType)
+        {
+            float roll = Random.Range(0, 100);
+            if (roll <= parent.Proc)
+            {
+                target.AddDebuff(parent.GetDebuff());
+            }
+        }
+
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -47,13 +64,16 @@ public class Projectile : MonoBehaviour {
         {
             if (target.gameObject == other.gameObject)
             {
-                target.TakeDamage(parent.Damage);
+                target.TakeDamage(parent.Damage, elementType);
 
                 myAnimator.SetTrigger("Impact");
+
+                ApplyDebuff();
             }
 
 
         }
 
     }
+
 }
