@@ -37,6 +37,13 @@ public class LevelManager : Singleton<LevelManager>
             return new Stack<Node>(new Stack<Node>(fullPath));
         }
     }
+    public Point BlueSpawn
+    {
+        get
+        {
+            return blueSpawn;
+        }
+    }
 
     public float TileSize
     {
