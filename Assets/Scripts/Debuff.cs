@@ -19,6 +19,7 @@ public abstract class Debuff
     public virtual void Update()
     {
         elapsed += Time.deltaTime;
+
         if (elapsed >= duration)
         {
             Remove();

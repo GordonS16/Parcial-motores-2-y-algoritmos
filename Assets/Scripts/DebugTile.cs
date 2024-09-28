@@ -1,14 +1,16 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.UI;
 
 public class DebugTile : MonoBehaviour
 {
+    [SerializeField]
+    private Text f;
 
-    [SerializeField] private Text f;
-    [SerializeField] private Text g;
-    [SerializeField] private Text h;
+    [SerializeField]
+    private Text g;
 
+    [SerializeField]
+    private Text h;
 
     public Text F
     {
@@ -17,7 +19,6 @@ public class DebugTile : MonoBehaviour
             f.gameObject.SetActive(true);
             return f;
         }
-
         set
         {
             this.f = value;
@@ -31,7 +32,6 @@ public class DebugTile : MonoBehaviour
             g.gameObject.SetActive(true);
             return g;
         }
-
         set
         {
             this.g = value;
@@ -45,7 +45,6 @@ public class DebugTile : MonoBehaviour
             h.gameObject.SetActive(true);
             return h;
         }
-
         set
         {
             this.h = value;

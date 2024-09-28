@@ -12,7 +12,6 @@ public class StormDebuff : Debuff
         }
     }
 
-
     public override void Remove()
     {
         if (target != null)
@@ -20,7 +19,5 @@ public class StormDebuff : Debuff
             target.Speed = target.MaxSpeed;
             base.Remove();
         }
-
-
     }
 }

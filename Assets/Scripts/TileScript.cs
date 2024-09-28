@@ -1,12 +1,13 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+
 public class TileScript : MonoBehaviour
 {
     public Point GridPosition { get; private set; }
-    public bool IsEmpty { get;  set; }
+    public bool IsEmpty { get; set; }
+    private Tower myTower;
     private Color32 fullColor = new Color32(255, 118, 118, 255);
     private Color32 emptyColor = new Color32(96, 255, 90, 255);
-    private Tower myTower;
     private SpriteRenderer spriteRenderer;
     public bool Walkable { get; set; }
     public bool Debugging { get; set; }
@@ -22,6 +23,10 @@ public class TileScript : MonoBehaviour
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    void Update()
+    {
     }
 
     public void Setup(Point gridPos, Vector3 worldPos, Transform parent)
@@ -70,27 +75,18 @@ public class TileScript : MonoBehaviour
         {
             ColorTile(Color.white);
         }
-
     }
 
     private void PlaceTower()
     {
         GameObject tower = (GameObject)Instantiate(GameManager.Instance.ClickedBtn.TowerPrefab, transform.position, Quaternion.identity);
-
         tower.GetComponent<SpriteRenderer>().sortingOrder = GridPosition.Y;
-
         tower.transform.SetParent(transform);
-
         this.myTower = tower.transform.GetChild(0).GetComponent<Tower>();
-
         IsEmpty = false;
-
         ColorTile(Color.white);
-
         myTower.Price = GameManager.Instance.ClickedBtn.Price;
-
         GameManager.Instance.BuyTower();
-
         Walkable = false;
     }
 

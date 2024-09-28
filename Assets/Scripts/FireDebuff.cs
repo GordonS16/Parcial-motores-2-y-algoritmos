@@ -5,9 +5,7 @@ using UnityEngine;
 public class FireDebuff : Debuff
 {
     private float tickTime;
-
     private float timeSinceTick;
-
     private float tickDamage;
 
     public FireDebuff(float tickDamage, float tickTime, float duration, Monster target) : base(target, duration)
@@ -25,14 +23,10 @@ public class FireDebuff : Debuff
             if (timeSinceTick >= tickTime)
             {
                 timeSinceTick = 0;
-
                 target.TakeDamage(tickDamage, Element.FIRE);
             }
         }
 
-
-
         base.Update();
     }
 }
-

@@ -4,28 +4,27 @@ using UnityEngine.UI;
 
 public class BarScript : MonoBehaviour
 {
-    [SerializeField] private Image content;
-    [SerializeField] private Text valueText; 
-    [SerializeField] private float lerpSpeed;
+    [SerializeField]
+    private Image content;
+
+    [SerializeField]
+    private Text valueText;
+
+    [SerializeField]
+    private float lerpSpeed;
 
     private float fillAmount;
 
-    [SerializeField] private bool lerpColors; 
-    [SerializeField] private Color fullColor;
+    [SerializeField]
+    private bool lerpColors;
 
-    [SerializeField] private Color lowColor;
+    [SerializeField]
+    private Color fullColor;
+
+    [SerializeField]
+    private Color lowColor;
 
     public float MaxValue { get; set; }
-
-    private float currentTime;
-
-    public float Value
-    {
-        set
-        {
-            fillAmount = Map(value, 0, MaxValue, 0, 1);
-        }
-    }
 
     void Start()
     {
@@ -35,13 +34,22 @@ public class BarScript : MonoBehaviour
         }
     }
 
-    void Update ()
+    void Update()
     {
         HandleBar();
     }
+
+    public float Value
+    {
+        set
+        {
+            fillAmount = Map(value, 0, MaxValue, 0, 1);
+        }
+    }
+
     private void HandleBar()
     {
-        if (fillAmount != content.fillAmount) 
+        if (fillAmount != content.fillAmount)
         {
             content.fillAmount = Mathf.Lerp(content.fillAmount, fillAmount, Time.deltaTime * lerpSpeed);
 
@@ -49,9 +57,7 @@ public class BarScript : MonoBehaviour
             {
                 content.color = Color.Lerp(lowColor, fullColor, fillAmount);
             }
-
         }
-
     }
 
     public void Reset()

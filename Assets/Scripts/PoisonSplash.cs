@@ -9,8 +9,7 @@ public class PoisonSplash : MonoBehaviour
         if (other.tag == "Monster")
         {
             other.GetComponent<Monster>().TakeDamage(Damage, Element.POISON);
-            //Destroy(gameObject);
-            GameManager.Instance.Pool.ReleaseObject(gameObject);
+            Destroy(gameObject);
         }
     }
 }

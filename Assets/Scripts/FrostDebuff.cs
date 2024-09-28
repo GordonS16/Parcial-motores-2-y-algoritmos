@@ -1,11 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class FrostDebuff : Debuff
+﻿class FrostDebuff : Debuff
 {
     private float slowingFactor;
-
     private bool applied;
 
     public FrostDebuff(float slowingFactor, float duration, Monster target) : base(target, duration)
@@ -15,19 +10,16 @@ public class FrostDebuff : Debuff
 
     public override void Update()
     {
-        if (target != null) 
+        if (target != null)
         {
-            if (!applied) 
+            if (!applied)
             {
-                applied = true; 
-
+                applied = true;
                 target.Speed -= (target.MaxSpeed * slowingFactor) / 100;
             }
 
-            //Calss the base class's update
             base.Update();
         }
-
     }
 
     public override void Remove()
@@ -35,9 +27,7 @@ public class FrostDebuff : Debuff
         if (target != null)
         {
             target.Speed = target.MaxSpeed;
-
             base.Remove();
         }
-
     }
 }
