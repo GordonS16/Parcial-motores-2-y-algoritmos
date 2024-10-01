@@ -115,7 +115,7 @@ public abstract class Tower : MonoBehaviour
             if (canAttack)
             {
                 Shoot();
-                myAnimator.SetTrigger("Attack");
+                //myAnimator.SetTrigger("Attack");
                 canAttack = false;
             }
         }
